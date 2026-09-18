@@ -66,4 +66,4 @@ src/
 
 ## Despliegue
 
-El proyecto está configurado como sitio estático para [Vercel](https://vercel.com) (`site` apuntando a `https://packet-lab.vercel.app`).
+El proyecto está configurado como sitio estático para [Vercel](https://vercel.com).
