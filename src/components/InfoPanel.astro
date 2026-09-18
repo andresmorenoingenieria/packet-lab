@@ -1,0 +1,47 @@
+---
+const steps = [
+  { num: '01', title: 'The message is split into packets', text: 'Host A divides the message into 8 packets. Each packet carries its own sequence number.' },
+  { num: '02', title: 'Packets travel independently', text: 'Every packet crosses the network on its own — there is no dedicated connection.' },
+  { num: '03', title: 'Routers decide the next hop', text: 'At each router the next link is chosen using the routing policy: shortest path, load balanced or random.' },
+  { num: '04', title: 'Packets can take different paths', text: 'Different packets often follow different routes and may arrive out of order.' },
+  { num: '05', title: 'The destination reassembles the message', text: 'Host B reorders packets by sequence number and rebuilds the full message.' },
+];
+---
+<div
+  id="info-overlay"
+  class="absolute inset-0 z-30 flex items-center justify-center bg-slate-950/70 p-3 sm:p-6"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="info-title"
+  hidden
+>
+  <div class="info-card w-full max-w-md rounded-2xl border border-slate-700/70 bg-slate-950 p-5 shadow-[0_10px_40px_rgba(2,6,23,0.6)]">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <h2 id="info-title" class="font-mono text-sm font-black tracking-[0.12em] text-slate-100">
+        HOW <span class="text-cyan-300">PACKET SWITCHING</span> WORKS
+      </h2>
+      <button
+        id="info-close"
+        class="flex h-7 w-7 items-center justify-center rounded-md border border-slate-700 bg-slate-900 text-slate-400 transition hover:border-slate-500 hover:text-slate-200"
+        type="button"
+        aria-label="Close explanation"
+      >✕</button>
+    </div>
+    <ol class="flex flex-col gap-3">
+      {
+        steps.map((s) => (
+          <li class="flex gap-3">
+            <span class="mono mt-0.5 text-[11px] font-bold text-cyan-400">{s.num}</span>
+            <div>
+              <p class="text-[13px] font-semibold text-slate-100">{s.title}</p>
+              <p class="text-[12px] leading-relaxed text-slate-400">{s.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="mt-4 border-t border-slate-800 pt-3 font-mono text-[10px] leading-relaxed text-slate-500">
+      Tune loss, congestion and routing to see them change how packets cross the network in real&nbsp;time.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+---
+const stats = [
+  { label: 'Packets', id: 'stat-total', cls: 'text-slate-100' },
+  { label: 'In transit', id: 'stat-transit', cls: 'stat-cyan' },
+  { label: 'Queued', id: 'stat-queued', cls: 'text-slate-300' },
+  { label: 'Delivered', id: 'stat-delivered', cls: 'stat-good' },
+  { label: 'Lost', id: 'stat-lost', cls: 'stat-bad' },
+  { label: 'Avg latency', id: 'stat-latency', cls: 'text-yellow-300' },
+  { label: 'Throughput', id: 'stat-throughput', cls: 'stat-cyan' },
+];
+---
+<section class="stats-panel h-full" data-tab="stats" aria-label="Live statistics">
+  <div class="flex h-full min-h-0 flex-col gap-2 p-2.5 sm:p-3">
+    <div class="flex shrink-0 items-baseline justify-between">
+      <h2 class="font-mono text-[9px] tracking-[0.2em] text-slate-600">LIVE TELEMETRY</h2>
+      <span class="mono text-[9px] uppercase tracking-[0.14em] text-emerald-400">● live</span>
+    </div>
+    <ul class="grid min-h-0 flex-1 grid-cols-4 content-start gap-x-2 gap-y-2 overflow-hidden sm:grid-cols-7 lg:grid-cols-4 xl:grid-cols-7" role="list">
+      {
+        stats.map((s) => (
+          <li class="rounded-lg border border-slate-800/70 bg-slate-900/40 px-2.5 py-2">
+            <span class="stat-label block">{s.label}</span>
+            <span id={s.id} class={`stat-value ${s.cls}`}>0</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

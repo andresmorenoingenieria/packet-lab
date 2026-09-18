@@ -1,0 +1,92 @@
+---
+const speedOptions = [
+  { value: '0.5', label: '0.5×' },
+  { value: '1', label: '1×' },
+  { value: '2', label: '2×' },
+  { value: '4', label: '4×' },
+];
+const congestionOptions = [
+  { value: 'low', label: 'Low' },
+  { value: 'medium', label: 'Med' },
+  { value: 'high', label: 'High' },
+];
+const routingOptions = [
+  { value: 'shortest', label: 'Shortest' },
+  { value: 'balanced', label: 'Balanced' },
+  { value: 'random', label: 'Random' },
+];
+---
+<section class="control-panel h-full" data-tab="controls" aria-label="Simulation controls">
+  <div class="scrollbar-thin flex h-full min-h-0 flex-col gap-2.5 overflow-y-auto p-2.5 sm:p-3">
+    <div class="flex shrink-0 items-center gap-2">
+      <button id="btn-start" class="btn-primary" type="button" aria-pressed="false">
+        <span id="btn-start-icon" aria-hidden="true">▶</span>
+        <span id="btn-start-label">Start</span>
+      </button>
+      <button id="btn-reset" class="btn-ghost" type="button" aria-label="Reset simulation">
+        <span aria-hidden="true">↻</span><span>Reset</span>
+      </button>
+      <span class="ml-auto hidden font-mono text-[9px] tracking-[0.2em] text-slate-600 md:inline">SIMULATION CONTROLS</span>
+    </div>
+
+    <div class="grid min-h-0 grid-cols-2 gap-x-4 gap-y-2.5 md:grid-cols-4">
+      <div class="field">
+        <span class="stat-label block">Speed</span>
+        <div class="seg-wrap flex flex-wrap gap-1.5" role="group" aria-label="Transmission speed">
+          {
+            speedOptions.map((o) => (
+              <button class="opt-btn speed-opt" type="button" data-speed={o.value} aria-pressed="false">
+                {o.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="stat-label block">Routing</span>
+        <div class="seg-wrap flex flex-wrap gap-1.5" role="group" aria-label="Routing policy">
+          {
+            routingOptions.map((o) => (
+              <button class="opt-btn routing-opt" type="button" data-routing={o.value} aria-pressed="false">
+                {o.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="stat-label block">Congestion</span>
+        <div class="seg-wrap flex flex-wrap gap-1.5" role="group" aria-label="Network congestion level">
+          {
+            congestionOptions.map((o) => (
+              <button class="opt-btn congestion-opt" type="button" data-congestion={o.value} aria-pressed="false">
+                {o.label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="field flex flex-col justify-between gap-1.5">
+        <span class="stat-label flex items-center justify-between">
+          <span>Packet loss</span>
+          <span id="loss-value" class="mono font-bold text-cyan-300">0%</span>
+        </span>
+        <label class="flex flex-1 items-center gap-2 text-[10px] text-slate-500">
+          <input
+            id="loss-slider"
+            class="loss-range"
+            type="range"
+            min="0"
+            max="30"
+            step="1"
+            value="0"
+            aria-label="Packet loss probability, from 0 to 30 percent" />
+          <span class="mono hidden sm:inline">0–30%</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>

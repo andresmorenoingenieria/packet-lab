@@ -1,0 +1,17 @@
+<div id="network-graph" class="absolute inset-0 overflow-hidden">
+  <svg
+    id="network-svg"
+    preserveAspectRatio="xMidYMid meet"
+    aria-label="Packet switching network. Interact with packets and routers to inspect them."
+  ></svg>
+
+  <div
+    id="graph-hint"
+    class="pointer-events-none absolute inset-x-0 bottom-2 z-10 flex justify-center transition-all duration-500"
+  >
+    <p class="rounded-full border border-slate-800 bg-slate-950/85 px-4 py-2 text-center font-mono text-[11px] tracking-wide text-slate-400">
+      Press <span class="font-bold text-cyan-300">Start</span> — Host A splits the message into
+      <span class="font-bold text-cyan-300">8 packets</span> and routes them independently to Host&nbsp;B
+    </p>
+  </div>
+</div>

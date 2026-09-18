@@ -1,0 +1,21 @@
+<aside
+  id="inspector"
+  class="absolute left-3 right-3 top-3 z-20 rounded-xl border border-slate-700/70 bg-slate-950/92 shadow-[0_8px_30px_rgba(2,6,23,0.5)] backdrop-blur-[2px] sm:left-auto sm:right-3 sm:w-[280px]"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="inspector-title"
+  aria-hidden="true"
+>
+  <div class="flex items-center justify-between gap-2 border-b border-slate-800 px-3.5 py-2.5">
+    <h2 id="inspector-title" class="font-mono text-[11px] font-bold tracking-[0.16em] text-cyan-300">DETAILS</h2>
+    <button
+      id="inspector-close"
+      class="flex h-6 w-6 items-center justify-center rounded-md border border-slate-700 bg-slate-900 text-slate-400 transition hover:border-slate-500 hover:text-slate-200"
+      type="button"
+      aria-label="Close details panel"
+    >✕</button>
+  </div>
+  <div class="px-3.5 py-3">
+    <dl id="inspector-rows" class="flex flex-col gap-1.5"></dl>
+  </div>
+</aside>

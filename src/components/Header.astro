@@ -1,0 +1,38 @@
+---
+const { title = 'PACKET LAB', subtitle = 'Interactive Packet Switching Simulator' } = Astro.props;
+---
+<header class="app-header flex shrink-0 items-center gap-3 border-b border-slate-800 bg-slate-950 px-3 sm:px-4 py-2">
+  <div class="flex items-center gap-2.5 min-w-0">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+      <rect width="32" height="32" rx="8" fill="#0f172a" stroke="#1e293b" />
+      <circle cx="10" cy="16" r="4.5" fill="none" stroke="#34d399" stroke-width="2" />
+      <circle cx="22" cy="16" r="4.5" fill="none" stroke="#c084fc" stroke-width="2" />
+      <path d="M14.5 16h3" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2.5" />
+    </svg>
+    <div class="min-w-0 leading-tight">
+      <h1 class="font-mono text-[13px] sm:text-sm font-black tracking-[0.18em] text-slate-100 truncate">{title}</h1>
+      <p class="hidden sm:block text-[10px] tracking-[0.06em] text-slate-500">{subtitle}</p>
+    </div>
+  </div>
+
+  <div class="ml-auto flex items-center gap-2">
+    <div
+      id="status-pill"
+      data-state="ready"
+      class="hidden min-[420px]:flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-3 py-1.5"
+      role="status"
+      aria-live="polite"
+    >
+      <span class="status-dot h-2 w-2 rounded-full" aria-hidden="true"></span>
+      <span id="status-text" class="font-mono text-[10px] tracking-[0.08em] text-slate-300">Simulation Ready</span>
+    </div>
+
+    <button id="info-open" class="btn-ghost !py-1.5 !px-3 text-[11px]" type="button" aria-haspopup="dialog" aria-controls="info-overlay">
+      <span aria-hidden="true">?</span> How it works
+    </button>
+
+    <button id="btn-reset-header" class="btn-ghost !py-1.5 !px-3 text-[11px]" type="button">
+      <span aria-hidden="true">↻</span> Reset
+    </button>
+  </div>
+</header>
